@@ -1,0 +1,82 @@
+// файл обнуления стилей
+@import "./assets/scss/nullstyle.scss";
+// стили карточки
+@import "./assets/scss/cardsItem.scss";
+// стили ссылки
+@import "./assets/scss/linkShowMore";
+// иконочный шрифт
+@import "./assets/scss/iconfont.scss";
+// breakpoints
+@import "./assets/scss/breakpoints";
+
+$main-color: rgba(44, 44, 44, 1);
+$secondary-color: rgba(143, 143, 143, 1);
+
+.wrapper {
+	min-height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+.__container {
+	max-width: 968px;
+	margin: 0 auto;
+	padding: 0 15px;
+	box-sizing: content-box;
+}
+._ibg {
+	position: relative;
+	img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+	}
+}
+.page {
+	margin: 25px 0px 33px 0px;
+}
+.page__title {
+	font-weight: 700;
+	font-size: 22px;
+	line-height: 115%;
+	color: $main-color;
+	margin: 0px 0px 10px 32px;
+	@include s{
+		margin: 0px 0px 10px 0px;
+		text-align:center;
+
+	}
+}
+
+.page__cards {
+}
+.cards {
+}
+.cards__body {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	@include s {
+		flex-direction: column;
+		align-items: center;
+	}
+}
+.cards__column {
+	flex: 0 1 224px;
+	@include m {
+		flex: 0 1 50%;
+		&:nth-child(odd) {
+			padding-right: 10px;
+		}
+	}
+	@include s {
+		flex: 0 1 100%;
+		&:nth-child(odd) {
+			padding-right: 0px;
+		}
+	}
+}
