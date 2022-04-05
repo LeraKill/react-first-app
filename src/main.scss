@@ -8,10 +8,16 @@
 @import "./assets/scss/iconfont.scss";
 // breakpoints
 @import "./assets/scss/breakpoints";
+// значок загрузки
+@import "./assets/scss/loading";
 
-$main-color: rgba(44, 44, 44, 1);
-$secondary-color: rgba(143, 143, 143, 1);
+$main-color: rgb(44, 44, 44);
+$secondary-color: rgb(143, 143, 143);
 
+body {
+	font-family: "Ubuntu", sans-serif;
+	background-color: #fff;
+}
 .wrapper {
 	min-height: 100%;
 	overflow: hidden;
@@ -35,48 +41,45 @@ $secondary-color: rgba(143, 143, 143, 1);
 		height: 100%;
 	}
 }
+
 .page {
 	margin: 25px 0px 33px 0px;
-}
-.page__title {
-	font-weight: 700;
-	font-size: 22px;
-	line-height: 115%;
-	color: $main-color;
-	margin: 0px 0px 10px 32px;
-	@include s{
-		margin: 0px 0px 10px 0px;
-		text-align:center;
-
-	}
-}
-
-.page__cards {
-}
-.cards {
-}
-.cards__body {
-	display: flex;
-	justify-content: space-between;
-	align-items: flex-start;
-	flex-wrap: wrap;
-	@include s {
-		flex-direction: column;
-		align-items: center;
-	}
-}
-.cards__column {
-	flex: 0 1 224px;
-	@include m {
-		flex: 0 1 50%;
-		&:nth-child(odd) {
-			padding-right: 10px;
+	&__title {
+		font-weight: 700;
+		font-size: 22px;
+		line-height: 115%;
+		color: $main-color;
+		margin: 0px 0px 10px 32px;
+		@include s {
+			margin: 0px 0px 10px 0px;
+			text-align: center;
 		}
 	}
-	@include s {
-		flex: 0 1 100%;
-		&:nth-child(odd) {
-			padding-right: 0px;
+}
+
+.cards {
+	&__body {
+		display: flex;
+		margin: 0 -12px;
+		align-items: flex-start;
+		flex-wrap: wrap;
+		@include s {
+			flex-direction: column;
+			align-items: center;
+		}
+	}
+	&__column {
+		flex: 0 1 248px;
+		padding: 0 12px;
+		box-sizing: border-box;
+		@include m {
+			flex: 0 1 50%;
+			&:nth-child(odd) {
+				padding-right: 10px;
+			}
+		}
+		@include s {
+			flex: 0 1 100%;
 		}
 	}
 }

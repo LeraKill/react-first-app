@@ -5,8 +5,6 @@ $main-color: rgba(44, 44, 44, 1);
 $secondary-color: rgba(143, 143, 143, 1);
 
 .cards__item {
-}
-.item-card {
 	background-color: #fff;
 	border-radius: 8px;
 	overflow: hidden;
@@ -20,13 +18,14 @@ $secondary-color: rgba(143, 143, 143, 1);
 		margin: 0px 0px 15px 0px;
 	}
 }
+.item-card {
+}
 
 .item-card__seen {
 	position: absolute;
 	z-index: 2;
 	left: 30%;
 	top: 12px;
-	display: none;
 	span {
 		font-size: 12px;
 		line-height: 115%;
@@ -78,14 +77,19 @@ $secondary-color: rgba(143, 143, 143, 1);
 	transform: translateX(-50%);
 	display: flex;
 	.dot {
-		width: 15px;
-		height: 15px;
+		width: 10px;
+		height: 10px;
 		border-radius: 50%;
-		border: 2px solid #f1f1f1;
+		border: 2px solid #5a5a5a;
 		margin: 0 5px;
-		background: #f1f1f1;
+		background: #c4c4c4;
+		cursor: pointer;
 		&.active {
-			background: rgb(32, 32, 32);
+			background: #00a0ab;
+		}
+		@include m {
+			width: 15px;
+			height: 15px;
 		}
 	}
 }
@@ -130,34 +134,9 @@ $secondary-color: rgba(143, 143, 143, 1);
 			padding: 0 40px 0 0px;
 		}
 	}
-}
-
-.icon {
-	font-size: 24px;
-	transition: all 0.3s ease 0s;
-	color: #c4c4c4;
-	cursor: pointer;
-
-	.item-card__markers & {
-		color: #fff;
-	}
-
-	&:hover {
-		color: #00a0ab;
-	}
-
-	&.icon-stats {
-		display: block;
-		margin: 0px 0px 10px 0px;
-	}
-	&.icon-delivery {
-		margin: 0px 12px 0px 0px;
-	}
-	&._active {
-		color: #00a0ab;
-	}
-	@include m {
-		font-size: 20px;
+	.item-card__info-features {
+		display: flex;
+		align-items: flex-start;
 	}
 }
 
@@ -189,6 +168,29 @@ $secondary-color: rgba(143, 143, 143, 1);
 			@include s {
 				font-size: 12px;
 			}
+		}
+	}
+}
+
+.icon {
+	cursor: pointer;
+	svg {
+		transition: fill 0.3s ease 0s;
+	}
+	&:hover {
+		svg {
+			fill: rgb(0, 160, 171);
+		}
+	}
+	.item-card__markers &:first-child {
+		margin: 0px 0px 14px 0px;
+	}
+	.item-card__info-features &:first-child {
+		margin: 0px 14px 0px 0px;
+	}
+	&._selected {
+		svg {
+			fill: rgb(0, 160, 171);
 		}
 	}
 }

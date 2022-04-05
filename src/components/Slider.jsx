@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 function Slider({ items, slideIndex, moveDot }) {
 
@@ -13,7 +13,7 @@ function Slider({ items, slideIndex, moveDot }) {
 				</div>
 			)}
 			<div className='container__dots'>
-				{Array.from({ length: 3 }).map((dot, index) =>
+				{Array.from({ length: items.length }).map((dot, index) =>
 					<div key={`${dot}_${index}`}
 						className={slideIndex === index + 1 ? "dot active" : "dot"}
 						onClick={() => moveDot(index + 1)}>

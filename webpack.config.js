@@ -59,8 +59,19 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|jpe?g|gif|svg|webp|ico)$/i,
+        test: /\.(png|jpe?g|gif|webp|ico)$/i,
         type: mode === 'production' ? 'asset' : 'asset/resource',
+      },
+      {
+        test: /\.svg$/i,
+        type: 'asset',
+        resourceQuery: /url/, // *.svg?url
+      },
+      {
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        resourceQuery: { not: [/url/] }, // exclude react component if *.svg?url
+        use: ['@svgr/webpack'],
       },
       {
         test: /\.(woff2?|eot|ttf|otf)$/i,
