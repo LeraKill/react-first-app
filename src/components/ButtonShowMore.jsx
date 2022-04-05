@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 
-
-
 function ButtonShowMore({ value, isHide, onLinkClick }) {
-
 	return (
 		<button
 			className={`link-show-more ${isHide ? "" : "link-hide"}`}

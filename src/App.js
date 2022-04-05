@@ -3,17 +3,13 @@ import axios from 'axios'
 
 import { SectionCards } from './components';
 
-
-
 function App() {
 	const [cards, setCards] = useState([])
-
 	useEffect(() => {
 		axios.get('https://6075786f0baf7c0017fa64ce.mockapi.io/products').then(({ data }) => {
 			setCards(data)
 		})
 	}, [setCards]);
-
 
 	return (
 		<div className='wrapper'>
@@ -26,7 +22,5 @@ function App() {
 		</div>
 	)
 }
-
-
 
 export default App;

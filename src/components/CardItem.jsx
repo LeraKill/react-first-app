@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { Slider } from '../components';
 
@@ -7,18 +7,11 @@ import Like from '../assets/icons/like.svg';
 import Delivery from '../assets/icons/delivery.svg';
 import Deal from '../assets/icons/deal.svg';
 
-
+import { pictures, shuffle } from '../helpers.js';
 
 export default React.memo(
 	function CardItem({ oldPrice, price, title, locality, date, seen }) {
-
-		const pictures = ['https://images.unsplash.com/photo-1634820889655-00f3e38319ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY0OTA2OTAxMg&ixlib=rb-1.2.1&q=80&w=1080', 'https://images.unsplash.com/photo-1646404094528-92f946613413?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY0ODkxODgwMw&ixlib=rb-1.2.1&q=80&w=1080', 'https://images.unsplash.com/photo-1591636687027-a157c53387cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY0OTA2OTA5OA&ixlib=rb-1.2.1&q=80&w=1080'];
-
-		function shuffle(arr) {
-			arr.sort(() => Math.random() - 0.5);
-			return arr;
-		}
-
+		const [images] = useState(shuffle(pictures));
 		const [isSelectedCompare, setSelectedCompare] = useState(false);
 		const [isSelectedLike, setSelectedLike] = useState(false);
 		const [isSelectedDelivery, setSelectedDelivery] = useState(false);
@@ -37,14 +30,11 @@ export default React.memo(
 		function toggleClassDeal() {
 			setSelectedDeal(prevState => !prevState);
 		}
-
 		const moveDot = index => {
 			setSlideIndex(index);
 		}
-
 		function getFullDate(date) {
 			const newDate = new Date(date);
-
 			let newDay = newDate.getDate();
 			let newMonth = newDate.getMonth();
 			let newYear = newDate.getFullYear();
@@ -71,8 +61,7 @@ export default React.memo(
 					{seen && <div className='item-card__seen'>
 						<span>Просмотрено</span>
 					</div>}
-					<Slider items={shuffle(pictures)} slideIndex={slideIndex} moveDot={moveDot} />
-
+					<Slider items={images} slideIndex={slideIndex} moveDot={moveDot} />
 					<div className='item-card__markers'>
 						<div
 							className={`icon item-card__markers-icon ${isSelectedCompare ? "_selected" : ""}`}
@@ -84,7 +73,6 @@ export default React.memo(
 							onClick={toggleClassLike}>
 							<Like width='24' height='24' fill='white' />
 						</div>
-
 					</div>
 					<div className='item-card__info'>
 						<div className='item-card__info-first'>
@@ -117,8 +105,6 @@ export default React.memo(
 			</div>
 		)
 	}
-
-
 )
 
 

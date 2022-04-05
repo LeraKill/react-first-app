@@ -1,8 +1,6 @@
 import React from 'react'
 
 function Slider({ items, slideIndex, moveDot }) {
-
-
 	return (
 		<div className='item-card__slider slider__container'>
 			{items.map((item, index) =>
@@ -21,8 +19,6 @@ function Slider({ items, slideIndex, moveDot }) {
 				)}
 			</div>
 		</div>
-
-
 	)
 }
 

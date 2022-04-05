@@ -3,7 +3,6 @@ import React, { useState, useMemo } from 'react'
 import { CardItem, ButtonShowMore } from '../components'
 
 function SectionCards({ items }) {
-
 	const [initialCards, restCards] = useMemo(() => {
 		const mappedCards = items.map(cardData => (
 			<CardItem key={cardData.id} {...cardData} />
@@ -16,7 +15,6 @@ function SectionCards({ items }) {
 	function handleLink(event) {
 		setHide(prevValue => !prevValue);
 	}
-
 
 	if (!items.length) {
 		return (
@@ -39,7 +37,6 @@ function SectionCards({ items }) {
 			</div>
 		)
 	}
-
 	return (
 		<section className='page__cards cards'>
 			<div className='cards__body'>
