@@ -1,0 +1,50 @@
+* {
+	padding: 0;
+	margin: 0;
+	border: none;
+}
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+:focus,
+:active {
+	outline: none;
+}
+a,
+a:visited,
+a:hover {
+	text-decoration: none;
+}
+a:focus,
+a:active {
+	outline: none;
+}
+button {
+	cursor: pointer;
+}
+img {
+	vertical-align: top;
+}
+ul,
+ol,
+li {
+	list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: inherit;
+	font-size: inherit;
+}
+html,
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+}
